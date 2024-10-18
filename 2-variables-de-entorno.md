@@ -1,6 +1,6 @@
 # Variables de Entorno
-### ¿Qué son las variables de entorno
-# COMPLETAR
+### ¿Qué son las variables de entorno?
+Son valores que se configuran en el entorno de ejecución de un sistema operativo y se utilizan para almacenar información que puede ser compartida por múltiples procesos. Estas variables permiten configurar aplicaciones dentro de contenedores sin modificar el código. 
 
 ### Para crear un contenedor con variables de entorno?
 
@@ -10,21 +10,39 @@ docker run -d --name <nombre contenedor> -e <nombre variable1>=<valor1> -e <nomb
 
 ### Crear un contenedor a partir de la imagen de nginx:alpine con las siguientes variables de entorno: username y role. Para la variable de entorno rol asignar el valor admin.
 
-# COMPLETAR
+```
+docker run -d --name nginxUA -e username=gabo -e role=admin nginx:alpine
+```
 
-# CAPTURA CON LA COMPROBACIÓN DE LA CREACIÓN DE LAS VARIABLES DE ENTORNO DEL CONTENEDOR ANTERIOR
+![ImagenUA](img/nginxUA.PNG)
+![ImagenUAC](img/nginxUAC.PNG)
+
+
 
 ### Crear un contenedor con mysql:8 , mapear todos los puertos
-# COMPLETAR
+```
+docker run -d --name mysql -p 8080:3306 mysql:8
+```
 
 ### ¿El contenedor se está ejecutando?
-# COMPLETAR
+No se está ejecutando. 
+![ImagenEjec](img/dockerEjec.PNG)
+
 
 ### Identificar el problema
-# COMPLETAR
+```
+docker logs mysql
+```
+![ImagenMis](img/dockerMistake.PNG)
+
+MySQL no puede iniciar porque no se ha proporcionado una contraseña para el usuario root, y la base de datos está sin inicializar.
 
 ### Eliminar el contenedor creado con mysql:8 
-# COMPLETAR
+```
+docker rm mysql
+
+```
+![ImagesDelete](img/mysqlDelete.PNG)
 
 ### Para crear un contenedor con variables de entorno especificadas
 - Portabilidad: Las aplicaciones se vuelven más portátiles y pueden ser desplegadas en diferentes entornos (desarrollo, pruebas, producción) simplemente cambiando el archivo de variables de entorno.
@@ -41,9 +59,24 @@ docker run -d --name <nombre contenedor> --env-file=<nombreArchivo>.<extensión>
 Es necesario especificar la ruta absoluta del archivo si este se encuentra en una ubicación diferente a la que estás ejecutando el comando docker run.
 
 ### Crear un contenedor con mysql:8 , mapear todos los puertos y configurar las variables de entorno mediante un archivo
-# COMPLETAR
 
-# CAPTURA CON LA COMPROBACIÓN DE LA CREACIÓN DE LAS VARIABLES DE ENTORNO DEL CONTENEDOR ANTERIOR 
+```
+docker run -d --name mysqlP --env-file=C:\Users\Gabriel\Desktop\EVOLUCION_SOFTWARE\2024B-ISWD633-practica2\variablesMYSQL.env -p 8080:3306 mysql:8
+```
+![ImagesOK](img/mysqlOK.PNG)
+![ImagesVE](img/mysqlVE.PNG)
+
+```
+docker exec -it mysql mysql -u root -p
+
+```
 
 ### ¿Qué bases de datos existen en el contenedor creado?
-# COMPLETAR
+Existen 5 bases de datos
+- baseDeDatosPrueba: Esta es probablemente la base de datos que creaste para pruebas.
+- information_schema: Base de datos que contiene información sobre todas las demás bases de datos.
+- mysql: Base de datos que almacena información sobre los usuarios y privilegios de MySQL.
+- performance_schema: Proporciona información sobre el rendimiento del servidor MySQL.
+- sys: Base de datos que contiene vistas que ayudan a mejorar el rendimiento y la gestión de la base de datos.
+
+![ImagesVE](img/mysqlDB.PNG)
