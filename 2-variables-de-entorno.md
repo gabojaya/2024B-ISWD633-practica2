@@ -33,7 +33,6 @@ No se está ejecutando.
 ```
 docker logs mysql
 ```
-![ImagenMis](img/dockerMistake.PNG)
 
 MySQL no puede iniciar porque no se ha proporcionado una contraseña para el usuario root, y la base de datos está sin inicializar.
 

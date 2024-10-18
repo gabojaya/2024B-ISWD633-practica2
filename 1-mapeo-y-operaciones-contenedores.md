@@ -120,8 +120,6 @@ docker logs -n <cantidad de líneas> <nombre o id del contenedor>
 ```
 -t: para incluir la fecha y la hora
 
-![ImagenLogs](img/jenkinsLogs.PNG)
-
 
 
 

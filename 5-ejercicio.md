@@ -30,6 +30,7 @@ Desde el panel de admin: cambiar el tema y crear una nueva publicación.
 
 Ingresar a: http://localhost:9300/ 
 recordar que a es el puerto que usó para el mapeo con wordpress
+
 ![Imagen8](img/wpPrimerPublicacion.PNG)
 
 ### Eliminar el contenedor wordpress
